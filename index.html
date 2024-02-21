@@ -1,0 +1,299 @@
+<html>
+  <head>
+    <title>CSS</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="function.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>
+        <h1>Cascading Style Sheet</h1>
+      </header>
+      <a class="nav-link" href="#introduction">Introduction</a>
+      <a class="nav-link" href="#semantics">Semantics</a>
+      <a class="nav-link" href="#styling">Styling</a>
+      <a class="nav-link" href="#display">Display</a>
+      <a class="nav-link" href="#animations">Animations</a>
+      <a class="nav-link" href="#test">Test Your Knowledge</a>
+    </nav>
+
+    <main id="main-doc">
+      <section id="introduction" class="main-section">
+        <header><h2>Introduction</h2></header>
+        <p>
+          When building a website, HTML code gives a result too bland. There are
+          ways to style it using inline code, but this is too annoying. This is
+          where Cascading Style Sheet CSS comes to play.<br />
+        </p>
+
+        <p>
+          CSS is quite easy to use once you understand how everything is
+          connected and is the gateway to many career paths especially UI and UX
+          desginers.<br />
+        </p>
+        <p>
+          This guide will assume that you have prior knowledge of the
+          following:<br />
+        </p>
+        <ul>
+          <li>Basic computer literacy</li>
+          <li>Basic knowledge of working with files</li>
+          <li>HTML basics</li>
+        </ul>
+      </section>
+      <section id="semantics" class="main-section">
+        <header><h2>Semantics</h2></header>
+        <p>
+          The semantics of CSS are an analogy of those of HTML. Like HTML has
+          tags and elements inside them, CSS has selectors and properties inside
+          them. The difference is that the properties affect the selectors
+          unlike the elements.<br />
+        </p>
+        <p>
+          Basically, what you write in HTML is defined in selectors, and in CSS,
+          when you write the respective selectors, whatever properties you use
+          change the element in HTML.<br />
+        </p>
+        <p>
+          In the following, I have a "p" element written in HTML. On the right,
+          I used CSS to apply the background-color property to make the
+          background red and the border property to add black, solid borders.
+        </p>
+        <div class="codex">
+          <pre>
+                <code id="html"> < p > 
+                    Here is a paragraph element that will 
+                    have a red background and black borders
+                < / p >
+                </code>
+            </pre>
+          <pre>
+            <code id="css">p {
+                background-color: red;
+                border: black solid;
+              }
+            </code>
+          </pre>
+        </div>
+        <p>
+          An important note is that in CSS, the characteristics of the element
+          will not be necessarily taken according to the order written. In
+          properties, CSS rules state that the second property will be taken. In
+          values, they will be taken in the order written and will only skip if
+          the value are unavailable.
+        </p>
+        <div class="codex">
+          <div>
+            <pre>
+                <code id="html"> p {
+                font-family: calibri;
+                font-family: sans-serif;      
+                }
+                </code>
+            </pre>
+            <p>Sans-serif will be used.</p>
+          </div>
+          <div>
+            <pre>
+                <code id="css">p {
+                font-family: calibri , sans-serif;
+                }
+                </code>
+            </pre>
+            <p>Calibri will be used unless it is unavailable.</p>
+          </div>
+        </div>
+        <p>
+          In HTML, one can specialize an element over another using a class or
+          id. Well in CSS, these come in pretty handy since you can choose to
+          style only this set of elements and not all that have the same tags.
+        </p>
+        <div class="codex">
+          <pre>
+            <code id="html"> .example {
+              /*anything mentioned here will only apply to the elements with class "example"*/
+            }
+            </code>
+        </pre>
+          <pre>
+                  <code id="html"> #example {
+                    /*anything mentioned here will only apply to the element with id "example"*/
+                  }
+                  </code>
+              </pre>
+        </div>
+        <ul>
+          <li>
+            Note: In CSS, anything between
+            <code class="inlinecode">/* ------ */</code> will be commented out
+          </li>
+        </ul>
+      </section>
+      <section id="styling" class="main-section">
+        <header><h2>Styling</h2></header>
+        <p>When it comes to styling there are many elements to cover:<br /></p>
+        <ul>
+          <li>Text</li>
+          <li>Image</li>
+          <li>Body</li>
+        </ul>
+        <p>and many others. So here we will only talk about text and images.</p>
+        <p>
+          Just like in Microsoft Word, you can change the text however you wish.
+          In the following, we change the color, size, weight, and family of the
+          font of the p element only.
+        </p>
+        <div class="codex">
+          <pre><code>p {
+            color: red;
+            font-size: 10px;
+            font-weight: bolder;
+            font-family: calibri , sans-serif;
+            }
+            </code></pre>
+        </div>
+        <p>
+          Images can be styled in anyway you can imagine. Whether is it were to
+          resize, add a border, add border-radius, change opacity, or add a
+          filter, all of these can be done.<br />
+          An important note is that in border, the order taken will be in the
+          clockwise direction tsarting from top (top, right, bottom, left).
+        </p>
+        <div class="codex">
+          <pre><code>img {
+              width: 100px;
+              height: 150px;
+              border: red dotted 3px;
+              border-radius: 5px;
+              opacity: 0.7;
+              filter: grayscale(60%);
+            }
+              </code></pre>
+        </div>
+      </section>
+      <section id="display" class="main-section">
+        <header><h2>Display</h2></header>
+        <div id="boxmodel">
+          <p>
+            In display, always refer to the box model. The box model is a visual
+            representaion that shows how all elements are wrapped in a box
+            surrounded by padding, border, and margins.
+          </p>
+          <img id="model" src="img1.png" />
+        </div>
+        <ol>
+          <li>
+            Padding: clears an area directly around the content within the box.
+            It is usually transparent.
+          </li>
+          <li>
+            Border: goes around the padding and shows the boundaries of the
+            division.
+          </li>
+          <li>Margin: clears an area around the division. It is transparent</li>
+        </ol>
+        <p>
+          When choosing the display property, keep in mind you are choosing how
+          will the children of this element appear.
+        </p>
+        <ul>
+          <li>
+            Grid: You can divide the division into a grid and fill the cells
+            with the children
+          </li>
+          <li>
+            Flex: You can have more freedom and control the children's position.
+          </li>
+          <li>
+            Block: The division will appear as a block on a new line and all
+            children will be positioned in this block.
+          </li>
+        </ul>
+        <p>
+          Position is simply related to where and how will you see the division.
+        </p>
+        <ul>
+          <li>
+            Fixed: This will fix the division to a single place (best used with
+            navbars).
+          </li>
+          <li>
+            Relative: Using this with some more properties allows you to
+            position the division relatively to where it will normally appear.
+          </li>
+          <li>
+            Absolute: The division will be positioned relatively to its first
+            positioned ancestor.
+          </li>
+        </ul>
+      </section>
+      <section id="animations" class="main-section">
+        <header><h2>Animations</h2></header>
+        <p>
+          When you hover over a button, sometimes the colors change, sometimes
+          it darkens, and sometimes it changes place. These effects don't need
+          the advanced works of JavaScript. They are all made possible by the
+          toolkit of animations properties of CSS.
+        </p>
+        <p>
+          The only thing you need to do is add when you want the animation to
+          play. The following code specifies that when the user hovers over the
+          button, the opacity must become 0.6.
+        </p>
+        <pre>
+          <code>btn:hover {
+        opacity: 0.6;      
+        }</code>
+        </pre>
+        <p>
+          But this will create a choppy effect. The solution is to add a
+          transition to the original element.
+        </p>
+        <pre>
+            <code>btn {
+          transition: 0.3s ease-out;      
+          }</code>
+          </pre>
+        <p>
+          In addition, CSS offers an array of transform codes that can be used
+        </p>
+        <div class="codex">
+          <code>translate(...)</code>
+          <code>scale(...)</code>
+          <code>rotate(...)</code>
+        </div>
+        <p>
+          To have more control over what happens when, we can use the keyframes
+          command where we can specify what should the conditions be at certain
+          intervals of time. Then whatever animation we created can be linked
+          back to element.
+        </p>
+        <pre>
+            <code>btn:hover {
+                animation-name: zoom;
+                animation-time: 1s;
+            }
+
+            @keyframes zoom {
+                0%{
+                    scale(1);
+                }
+                100%{
+                    scale(2);
+                }
+            }
+            </code>
+        </pre>
+      </section>
+
+      <hr id="test" />
+      <form>
+        <h1>Test your knowledge!</h1>
+        <p>Confident of your knowledge? Let's see how advanced you are.</p>
+        <a href="test.html"
+          ><input id="submit" type="button" value="Test" />
+        </a>
+      </form>
+    </main>
+  </body>
+</html>
